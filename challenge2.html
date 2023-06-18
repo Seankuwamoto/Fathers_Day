@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+<meta charset="utf-8"/>
+<title>Day 10 - Advent of Code 2022</title>
+<!--[if lt IE 9]><script src="/static/html5.js"></script><![endif]-->
+<link href='//fonts.googleapis.com/css?family=Source+Code+Pro:300&subset=latin,latin-ext' rel='stylesheet' type='text/css'/>
+<link rel="stylesheet" type="text/css" href="styles.css"/>
+<link rel="stylesheet alternate" type="text/css" href="/static/highcontrast.css?0" title="High Contrast"/>
+<link rel="shortcut icon" href="/favicon.png"/>
+<script src="challenge2.js"></script>
+<script>window.addEventListener('click', function(e,s,r){if(e.target.nodeName==='CODE'&&e.detail===3){s=window.getSelection();s.removeAllRanges();r=document.createRange();r.selectNodeContents(e.target);s.addRange(r);}});</script>
+</head>
+<body>
+<header><div><h1 class="title-global"><a href="/">Coded Father's Day 2023</a></h1><nav><ul><li><a href="about.html">[About]</a></li></ul></nav></div></header>
+
+<main>
+<style>article *[title]{border-bottom:1px dotted #ffff66;}</style><article class="day-desc"><h2>--- June 19th: Rosetta Kibble ---</h2><p>It's Father's Day, and you're a father.</p>
+<p>As you make your way through your stack of cards, you come across a Father's Day card from your children. The handwriting is so messy that all you can make out are the first few words, "Your gift awaits you by the *#%0aiohr*#$(*#@)..."</p>
+<p><em>Pepper</em> comes up to you and puts her paws on your legs. It seems like she is trying to tell you something. Perhaps she knows something about where your gift is located! You follow her, and she takes you to her food bowl, where <em>kibble</em> is scattered all over the floor.</p>
+<p>Although Pepper is unable to talk, maybe she could tell you where your gift is hidden by <em>rearranging the kibble</em>. Unfortunately, Pepper does not have opposable thumbs, so she does not have the precision to move the kibble herself. After a few minutes, you notice that Pepper is using her <em>nose</em> to tell you how to move the kibble.</p>
+
+<p>Consider the following arrangement of kibble:</p>
+<pre><code>H000000
+0123450
+0000000
+</code></pre>
+<p>A <code>0</code> represents an <em>empty tile</em> on the floor, that is, a floor tile with no kibble on it. A <code>1</code> represents a tile on the floor with one piece of kibble, and so on. No floor tile has more than nine pieces of kibble on it.</p>
+<p>You decide, arbitratily, that you will start by holding your <em>hand</em> above the <em>top left</em> tile on the floor, indicated above by the letter <code>H</code>. Using her nose, Pepper is able to issue you five different <em>commands</em>:</p>
+<ul>
+    <li><code>up</code>: Pepper tilts her head upward to signify that you should move your <em>hand</em> one tile upwards (from a bird's eye perspective)</li>
+    <li><code>down</code>: Pepper tilts her head downward to signify that you should move your hand one tile downwards</li>
+    <li><code>left</code>: Pepper tilts her head to the left to signify that you should move your hand one tile to the left</li>
+    <li><code>right</code>: Pepper tilts her head to the right to signify that you should move your hand one tile to the right</li>
+    <li><code>bark</code>: Pepper wags her tail and barks with excitement, signaling that you should <em>drop</em> a piece of kibble if you are holding one, or <em>pick up</em> one piece of kibble if you aren't.</li>
+</ul>
+<p>Pepper is highly intelligent, so she will <em>not</em> try to move your hand <em>outside of the grid of tiles</em> nor will she <code>bark</code> when there is no kibble in your hand and no kibble in the current tile.</p>
+<p>For example, consider the following set of instructions:</p>
+<pre><code>0000000
+0123450
+0000000
+
+down
+right
+right
+right
+bark
+bark
+bark
+up
+left
+bark
+left
+</code></pre>
+<p>You begin by moving your hand one tile <code>down</code>, moving it to the second row on the grid of tiles:</p>
+<pre><code>0000000
+H123450
+0000000
+</code></pre>
+<p>Pepper then tells you to move your hand three tiles to the right:</p>
+<pre><code>0000000
+012H450
+0000000
+</code></pre>
+<p>After the first <code>bark</code>, you pick up one piece of kibble from the pile of 3 kibble below your hand. Here <code>H</code> indicates an empty hand and <code><em>H</em></code> indicates a full hand.</p>
+<pre><code>0000000
+012<em>H</em>450
+0000000
+</code></pre>
+<p>After the second <code>bark</code>, you drop the piece of kibble you were just holding back in its tile.</p>
+<pre><code>0000000
+012H450
+0000000
+</code></pre>
+<p>Finally, after the third <code>bark</code>, you have a piece of kibble again.</p>
+<pre><code>0000000
+012<em>H</em>450
+0000000
+</code></pre>
+<p>Moving up, then left, then dropping the piece of kibble off, then finally left again, the floor now looks like this:</p>
+<pre><code>0H10000
+0122450
+0000000
+</code></pre>
+<p>You think that Pepper might be trying to send you a message through the empty tiles. In the example above, there are <em>15</em> empty tiles after the kibble has been moved. <em>How many tiles are left with no kibble after you finish following Pepper's instructions?</em></p>
+
+<p>Your puzzle answer was <code>223</code>.</p>
+
+<p>--- Part Two ---</p>
+
+<p>It seems like the message was actually encoded in where the kibble <em>was</em>, not where it <em>wasn't</em>. To decipher Pepper's message and figure out what the rest of your card says, represent all tiles with kibble as <em>#</em>, and all empty tiles as <em>.</em>.</p>
+<p><em>Your gift awaits you by the </em> <input type="text" name="answer" autocomplete="off"></input> <input type="submit" value="[Submit]"></p>
+<p>Although it hasn't changed, you can still <a href="input.txt">get your puzzle input</a>.</p>
+
+</article>
+</main>
+
+</body>
+</html>
